@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+
+	include SessionsHelper
+	include CurrentCart
+		before_action :set_cart
 	protect_from_forgery with: :exception
 
 	before_action :only_signed_in

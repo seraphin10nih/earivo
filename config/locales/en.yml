@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+  carts:
+    show:
+      cart_not_found: "Panier indisponible"
+

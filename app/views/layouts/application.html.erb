@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
    
   </head>
 
@@ -42,6 +43,8 @@
       </div>
     </div>
     <div class="container">
+    
+
       <% if flash[:success] %>
         <div class="alert alert-success">
           <%= flash[:success] %>
@@ -54,9 +57,25 @@
         </div>
       <% end %>
 
-    <%= yield %>
+      <h1 class="display-1 p-3 bg-secondary text-white rounded">Arts Gasy</h1>
+<div class="row">
+  <div class="col-3" id="cart">
+    <% if @cart && @cart.line_items.any? %>
+      <%= render @cart %>
+    <% else %>
+      <h2>Panier vide</h2>
+    <% end %>
+  </div>
 
-    <%= debug session[:auth] %>
+  <div class="col-9">
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+
+    <%= yield %>
+  </div>
+</div>
+
+   
 
   </div>
 

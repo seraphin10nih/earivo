@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
  
+ 
+  resources :carts
+  resources :line_items
+ root 'catalog#index'
+  resources :products
   	root to: 'users#new'
 
   	get '/profil', to: 'users#edit', as: :profil
